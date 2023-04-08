@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/bryanflanagan/turing_work/4mod/projects/take_home_challenge/tea_service/spec/models/tea_spec.rb": {
+      "/Users/bryanflanagan/turing_work/4mod/projects/take_home_challenge/tea_service/spec/models/subscription_spec.rb": {
         "lines": [
           1,
           null,
@@ -307,7 +307,7 @@
           null
         ]
       },
-      "/Users/bryanflanagan/turing_work/4mod/projects/take_home_challenge/tea_service/app/models/tea.rb": {
+      "/Users/bryanflanagan/turing_work/4mod/projects/take_home_challenge/tea_service/app/models/subscription.rb": {
         "lines": [
           1,
           1,
@@ -327,19 +327,6 @@
           null
         ]
       },
-      "/Users/bryanflanagan/turing_work/4mod/projects/take_home_challenge/tea_service/app/models/subscription.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/bryanflanagan/turing_work/4mod/projects/take_home_challenge/tea_service/app/models/customer.rb": {
         "lines": [
           1,
@@ -354,8 +341,21 @@
           1,
           null
         ]
+      },
+      "/Users/bryanflanagan/turing_work/4mod/projects/take_home_challenge/tea_service/app/models/tea.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1680991579
+    "timestamp": 1680991678
   }
 }

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-04-08T16:06:19-06:00">2023-04-08T16:06:19-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-04-08T16:07:58-06:00">2023-04-08T16:07:58-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -247,7 +247,7 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#b64b682fdc44454304c0e9e51ad310ffc5ebcc65" class="src_link" title="spec/models/tea_spec.rb">spec/models/tea_spec.rb</a></td>
+            <td class="strong t-file__name"><a href="#a3172fe0ea318825250a4e8560b3079b1774537c" class="src_link" title="spec/models/subscription_spec.rb">spec/models/subscription_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">15</td>
             <td class="cell--number">10</td>
@@ -2915,9 +2915,9 @@
 </div>
 
       
-        <div class="source_table" id="b64b682fdc44454304c0e9e51ad310ffc5ebcc65">
+        <div class="source_table" id="a3172fe0ea318825250a4e8560b3079b1774537c">
   <div class="header">
-    <h3>spec/models/tea_spec.rb</h3>
+    <h3>spec/models/subscription_spec.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -2970,7 +2970,7 @@
 
             
 
-            <code class="ruby">RSpec.describe Tea, type: :model do</code>
+            <code class="ruby">RSpec.describe Subscription, type: :model do</code>
           </li>
         </div>
       
@@ -3003,7 +3003,7 @@
 
             
 
-            <code class="ruby">    it { should validate_presence_of :description }</code>
+            <code class="ruby">    it { should validate_presence_of :price }</code>
           </li>
         </div>
       
@@ -3014,7 +3014,7 @@
 
             
 
-            <code class="ruby">    it { should validate_presence_of :temperature }</code>
+            <code class="ruby">    it { should validate_presence_of :status }</code>
           </li>
         </div>
       
@@ -3025,7 +3025,7 @@
 
             
 
-            <code class="ruby">    it { should validate_presence_of :brew_time }</code>
+            <code class="ruby">    it { should validate_presence_of :frequency }</code>
           </li>
         </div>
       
@@ -3069,7 +3069,7 @@
 
             
 
-            <code class="ruby">    it { should have_many :subscriptions }</code>
+            <code class="ruby">    it { should belong_to :customer }</code>
           </li>
         </div>
       
@@ -3080,7 +3080,7 @@
 
             
 
-            <code class="ruby">    it { should have_many(:customers).through(:subscriptions) }</code>
+            <code class="ruby">    it { should belong_to :tea }</code>
           </li>
         </div>
       
