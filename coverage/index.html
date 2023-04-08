@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-04-08T16:04:34-06:00">2023-04-08T16:04:34-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-04-08T16:06:19-06:00">2023-04-08T16:06:19-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.06
+         1.05
        </span>
     </span> hits/line
     )
@@ -106,9 +106,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#01ea4e0d6ef592a82e1705528c702a4be9a7cb94" class="src_link" title="app/models/tea.rb">app/models/tea.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">8</td>
-            <td class="cell--number">3</td>
-            <td class="cell--number">3</td>
+            <td class="cell--number">9</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">4</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -247,13 +247,13 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#e06529829b214b2191e04d059e49c8862033bf1d" class="src_link" title="spec/models/customer_spec.rb">spec/models/customer_spec.rb</a></td>
+            <td class="strong t-file__name"><a href="#b64b682fdc44454304c0e9e51ad310ffc5ebcc65" class="src_link" title="spec/models/tea_spec.rb">spec/models/tea_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">17</td>
-            <td class="cell--number">11</td>
-            <td class="cell--number">11</td>
+            <td class="cell--number">15</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">10</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.64</td>
+            <td class="cell--number">1.60</td>
             
           </tr>
         
@@ -645,8 +645,8 @@
     
 
     <div class="t-line-summary">
-      <b>3</b> relevant lines.
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>4</b> relevant lines.
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -735,7 +735,18 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  has_many :customers, through: :subscriptions</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
             
             
 
@@ -2904,9 +2915,9 @@
 </div>
 
       
-        <div class="source_table" id="e06529829b214b2191e04d059e49c8862033bf1d">
+        <div class="source_table" id="b64b682fdc44454304c0e9e51ad310ffc5ebcc65">
   <div class="header">
-    <h3>spec/models/customer_spec.rb</h3>
+    <h3>spec/models/tea_spec.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -2918,8 +2929,8 @@
     
 
     <div class="t-line-summary">
-      <b>11</b> relevant lines.
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>10</b> relevant lines.
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -2959,7 +2970,7 @@
 
             
 
-            <code class="ruby">RSpec.describe Customer, type: :model do</code>
+            <code class="ruby">RSpec.describe Tea, type: :model do</code>
           </li>
         </div>
       
@@ -2981,7 +2992,7 @@
 
             
 
-            <code class="ruby">    it { should validate_presence_of :first_name }</code>
+            <code class="ruby">    it { should validate_presence_of :title }</code>
           </li>
         </div>
       
@@ -2992,7 +3003,7 @@
 
             
 
-            <code class="ruby">    it { should validate_presence_of :last_name }</code>
+            <code class="ruby">    it { should validate_presence_of :description }</code>
           </li>
         </div>
       
@@ -3003,7 +3014,7 @@
 
             
 
-            <code class="ruby">    it { should validate_presence_of :email }</code>
+            <code class="ruby">    it { should validate_presence_of :temperature }</code>
           </li>
         </div>
       
@@ -3014,18 +3025,18 @@
 
             
 
-            <code class="ruby">    it { should validate_presence_of :address }</code>
+            <code class="ruby">    it { should validate_presence_of :brew_time }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="9">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="9">
+            
             
 
             
 
-            <code class="ruby">    it { should validate_uniqueness_of :email }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -3036,23 +3047,12 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="11">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="12">
+          <li class="covered" data-hits="1" data-linenumber="11">
             <span class="hits">1</span>
             
 
@@ -3063,7 +3063,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="13">
+          <li class="covered" data-hits="2" data-linenumber="12">
             <span class="hits">2</span>
             
 
@@ -3074,29 +3074,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="14">
+          <li class="covered" data-hits="2" data-linenumber="13">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    it { should have_many(:teas).through(:subscriptions) }</code>
+            <code class="ruby">    it { should have_many(:customers).through(:subscriptions) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="16">
+          <li class="never" data-hits="" data-linenumber="14">
             
             
 
@@ -3107,7 +3096,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="17">
+          <li class="never" data-hits="" data-linenumber="15">
             
             
 
