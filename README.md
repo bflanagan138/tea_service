@@ -1,24 +1,130 @@
-# README
+<h1 align="center">
+  Tea Service
+</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p align="center">
+  <img width="600" src="https://github.com/bflanagan138/image_repo/blob/main/Screen%20Shot%202023-04-11%20at%201.24.39%20PM.png?raw=true">
+</p>
 
-Things you may want to cover:
+## Table of Contents
 
-* Ruby version
+- [Project Overview](#project-overview)
+- [Schema](#schema)
+- [Technologies](#technologies)
+- [Setup and Installation](#setup-and-installation)
+- [Learning Goals](#learning-goals)
 
-* System dependencies
+## Project Overview
 
-* Configuration
+**_Tea Service_** is an application that creates back end API endpoints for Customers to add Tea Subscriptions.
 
-* Database creation
+## Schema
+<p align="center">
+  <img width="900
+  " src="https://github.com/bflanagan138/image_repo/blob/main/Tea%20Service%20Schema.png?raw=true">
+</p>
 
-* Database initialization
+## API Endpoints
+Here is a list of all mapped client requests with their respective json responses below them:
 
-* How to run the test suite
+Shows Customer and their subscriptions: 
+```GET http://localhost:3000/api/v1/customers/1/subscriptions```
+```
+{
+    "data": {
+        "id": 1,
+        "attributes": {
+            "first_name": "Alejandra",
+            "last_name": "Stark",
+            "email": "jack@wisozk-marks.biz",
+            "address": "Apt. 818 754 Kuhlman Manors, Steuberside, AZ 22149-1295",
+            "subscriptions": [
+                {
+                    "title": "Subscription 1",
+                    "price": 11.88,
+                    "status": "active",
+                    "frequency": "Monthly"
+                },
+                {
+                    "title": "Subscription 2",
+                    "price": 22.12,
+                    "status": "cancelled",
+                    "frequency": "Weekly"
+                },
+                {
+                    "title": "Subscription 4",
+                    "price": 8.88,
+                    "status": "active",
+                    "frequency": "Yearly"
+                }
+            ]
+        }
+    }
+}
+```
+If customer has no subscriptions: 
+```GET http://localhost:3000/api/v1/customers/1/subscriptions```
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+{
+    "data": {
+        "id": 2,
+        "attributes": {
+            "first_name": "Modesto",
+            "last_name": "Langworth",
+            "email": "von@schinner.org",
+            "address": "Suite 790 479 Clement Locks, Lake Mallie, MN 19861-3397",
+            "subscriptions": "No Subscriptions Found"
+        }
+    }
+}
+```
 
-* Deployment instructions
+## Technologies
 
-* ...
+<p>
+<img width="100"src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white"> 
+</p>
+<p>
+<img width="100"src="https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white">
+</p>
+<p>
+<img width="100"src="https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white">
+</p>
+<p>
+<img width="100"src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
+</p>
+<p>
+<img width="100"src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+</p>
+<p>
+<img width="100"src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white">
+</p>
+<p>
+<img width="100"src="https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white">
+</p>
+<p>
+<img width="100"src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white">
+</p>
+
+  
+## Setup and Installation
+
+From your terminal, run:
+
+- ```git clone https://github.com/bflanagan138/tea_service.git```
+- ```bundle install```
+- ```rails db:create```
+- To run the tests: ```bundle exec rspec```
+- In your command line, run ```rails s``` then in a webbrowser, visit "http://localhost:3000/api/v1/customers/#{customer.id}/subscriptions" to run on your local host
+
+## Learning Goals
+
+- Employ Service-Oriented Architecture to create back end API endpoints for front end consumption
+- Document process utilizing project board
+- Create ReadMe to ensure users can easily use service
+- Graduate Turing
+
+<p align="center">
+  <img width="100" src="https://github.com/bflanagan138/image_repo/blob/main/Screen%20Shot%202023-04-11%20at%201.24.39%20PM.png?raw=true">
+</p>
