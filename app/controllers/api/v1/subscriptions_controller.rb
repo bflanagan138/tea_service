@@ -1,6 +1,12 @@
 class Api::V1::SubscriptionsController < ApplicationController
   def index
-
+    customer = Customer.find(params[:customer_id])
+    subscriptions = Subscription.where(customer_id: params[:customer_id])
+    if !customer.subscriptions.empty? 
+      render json: CustomerSerializer.new(customer)
+    else
+      render json: { error: "No Subscriptions Found" }
+    end
   end
   
   def create
