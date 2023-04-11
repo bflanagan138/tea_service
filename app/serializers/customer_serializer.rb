@@ -21,4 +21,21 @@ class CustomerSerializer
         }
       }
   end
+
+  def self.empty(customer)
+    {
+      "data": {
+        id: customer.id,
+        attributes: {
+          "first_name": customer.first_name,
+          "last_name": customer.last_name,
+          "email": customer.email,
+          "address": customer.address,
+          "subscriptions": "No Subscriptions Found"
+        }
+       
+      }
+    }
+  end
+  
 end

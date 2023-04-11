@@ -8,4 +8,14 @@ class ErrorSerializer
       }
     }
   end
+  
+  def self.cancelled_already
+    {
+      errors: 
+      {
+        status: 422,
+        title: "error -  No Active Subscription Exists"
+      }
+    }
+  end
 end

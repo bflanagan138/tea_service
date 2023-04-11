@@ -5,7 +5,7 @@ class Api::V1::SubscriptionsController < ApplicationController
     if !customer.subscriptions.empty? 
       render json: CustomerSerializer.new(customer)
     else
-      render json: { error: "No Subscriptions Found" }
+      render json: CustomerSerializer.empty(customer)
     end
   end
   
@@ -16,6 +16,16 @@ class Api::V1::SubscriptionsController < ApplicationController
       render json: SubscriptionSerializer.new_sub(subscription), status: 201
     else
       render json: ErrorSerializer.subscription_not_created, status: 400
+    end
+  end
+
+  def update 
+    sub = Subscription.find_by(id: params[:id])
+    if sub.status == "active"
+      sub.status = "cancelled"
+      render json: SubscriptionSerializer.new_sub(sub), status: 201
+    else
+      render json: ErrorSerializer.cancelled_already
     end
   end
 
