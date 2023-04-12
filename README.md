@@ -40,22 +40,43 @@ Shows Customer and their subscriptions:
             "address": "Apt. 818 754 Kuhlman Manors, Steuberside, AZ 22149-1295",
             "subscriptions": [
                 {
+                    "id": 1,
                     "title": "Subscription 1",
                     "price": 11.88,
                     "status": "active",
-                    "frequency": "Monthly"
+                    "frequency": "Monthly",
+                    "tea": {
+                        "title": "Bai Mu Dan",
+                        "description": "faint, watery, musty, honeydew, tamarind",
+                        "temperature": 281,
+                        "brew_time": 88
+                    }
                 },
                 {
+                    "id": 2,
                     "title": "Subscription 2",
                     "price": 22.12,
                     "status": "cancelled",
-                    "frequency": "Weekly"
+                    "frequency": "Weekly",
+                    "tea": {
+                        "title": "Vietnamese",
+                        "description": "unbalanced, creamy, wheat, raspberry, peach",
+                        "temperature": 993,
+                        "brew_time": 40
+                    }
                 },
                 {
+                    "id": 4,
                     "title": "Subscription 4",
                     "price": 8.88,
                     "status": "active",
-                    "frequency": "Yearly"
+                    "frequency": "Yearly",
+                    "tea": {
+                        "title": "Xinyang Maojian",
+                        "description": "structured, slick, hops, red currant, hops",
+                        "temperature": 629,
+                        "brew_time": 16
+                    }
                 }
             ]
         }
