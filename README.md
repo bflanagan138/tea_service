@@ -27,8 +27,12 @@
 ## API Endpoints
 Here is a list of all mapped client requests with their respective json responses below them:
 
+Root directory: 'http://localhost:3000/api/v1'
+
 Shows Customer and their subscriptions: 
-```GET http://localhost:3000/api/v1/customers/1/subscriptions```
+- `GET /customers/1/subscriptions'
+  
+- Successful response:
 ```
 {
     "data": {
@@ -84,8 +88,9 @@ Shows Customer and their subscriptions:
 }
 ```
 If customer has no subscriptions: 
-```GET http://localhost:3000/api/v1/customers/1/subscriptions```
+- `GET /customers/1/subscriptions`
 
+- Successful response:
 ```
 {
     "data": {
@@ -99,6 +104,73 @@ If customer has no subscriptions:
         }
     }
 }
+```
+
+Creates a new subscription for a customer: 
+- `POST /customers/1/subscriptions`
+
+- Body: 
+```
+{
+    "title": "Add a Subscription",
+    "price": 44.00,
+    "frequency": "Annually",
+    "tea_id": 1
+}
+```
+
+- Successful response:
+```
+{
+    "data": {
+        "id": 5,
+        "title": "Add a Subscription",
+        "price": 44.0,
+        "frequency": "Annually",
+        "status": "active",
+        "tea": {
+            "title": "Kukicha",
+            "description": "juicy, full, hay, honeydew, clementine",
+            "temperature": 429,
+            "brew_time": 57
+        }
+    }
+}
+```
+Cancels a customer subscription: 
+- `PATCH /customers/1/subscriptions/1`
+- Body: 
+```
+ {   
+    "data": {
+        "attributes": {
+            "subscriptions": [
+                {
+                "id": 1,
+                "status": "cancelled"
+                }
+            ]
+        }
+    }
+}
+```
+
+- Successful response:
+```{
+    "data": {
+        "id": 1,
+        "title": "Subscription 1",
+        "price": 11.88,
+        "frequency": "Monthly",
+        "status": "cancelled",
+        "tea": {
+            "title": "Kukicha",
+            "description": "juicy, full, hay, honeydew, clementine",
+            "temperature": 429,
+            "brew_time": 57
+        }
+      }
+    }
 ```
 
 ## Technologies
