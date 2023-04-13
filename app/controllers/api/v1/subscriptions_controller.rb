@@ -10,16 +10,18 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
   
   def create
+    # subscription = Subscription.create!(subscription_params)
     subscription_id = Subscription.last[:id] + 1
     subscription = Subscription.new(subscription_params)
-    subscription.id = subscription_id
-    subscription.status = "active"
     
-    # if subscription.save
+    subscription.status = "active"
+    subscription.save
+
+    if subscription.save
     render json: SubscriptionSerializer.new_sub(subscription), status: 201
-    # else
-    #   render json: ErrorSerializer.subscription_not_created, status: 400
-    # end
+    else
+      render json: ErrorSerializer.subscription_not_created, status: 400
+    end
   end
 
   def update 
@@ -35,6 +37,6 @@ class Api::V1::SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:subscription_id, :title, :price, :frequency, :status, :tea_id, :customer_id)
+    params.permit(:title, :price, :frequency, :tea_id, :customer_id)
   end
 end
