@@ -15,15 +15,25 @@ RSpec.describe "customer subscriptions" do
 
     get "/api/v1/customers/#{customer_3.id}/subscriptions"
 
-    data = JSON.parse(response.body, symbolize_names: true)
+    parse = JSON.parse(response.body, symbolize_names: true)[:data] 
     expect(response).to be_successful
-    expect(data).to be_a Hash
-    expect(data).to have_key (:error)
-    expect(data[:error]).to eq "No Subscriptions Found"
+    expect(parse).to be_a Hash
+    expect(parse).to have_key (:attributes)
+    expect(parse[:attributes]).to be_a Hash
+    expect(parse[:attributes]).to have_key (:first_name)
+    expect(parse[:attributes][:first_name]).to be_a String
+    expect(parse[:attributes]).to have_key (:last_name)
+    expect(parse[:attributes][:last_name]).to be_a String
+    expect(parse[:attributes]).to have_key (:email)
+    expect(parse[:attributes][:email]).to be_a String
+    expect(parse[:attributes]).to have_key (:address)
+    expect(parse[:attributes][:address]).to be_a String
+    expect(parse[:attributes]).to have_key (:subscriptions)
+    expect(parse[:attributes][:subscriptions]).to eq "No Subscriptions Found"
     
     get "/api/v1/customers/#{customer_1.id}/subscriptions"
     parse = JSON.parse(response.body, symbolize_names: true)
-
+    expect(response).to be_successful
     expect(parse).to be_a Hash
     expect(parse).to have_key (:data)
     expect(parse[:data]).to have_key (:id)

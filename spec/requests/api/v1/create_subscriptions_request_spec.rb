@@ -4,7 +4,10 @@ RSpec.describe "subscriptions" do
   it 'creates subscription' do
     customer_1 = Customer.create!(first_name: "Dave", last_name: "Davis", email: "dave@davedavis.com", address: "123 Davis Ct. Davis, MO 66666")
     tea_1 = Tea.create!(title: "Bengal Spice", description: "Herbal Tea, slightly sweet", temperature: 90, brew_time: 120)
-    body = {  title: "Monthly Harvest", 
+    subscription_1 = customer_1.subscriptions.create!(title: "Monthly Harvest", price: 22.48, frequency: "Monthly", tea_id: tea_1.id, status: "active")
+    # require 'pry'; binding.pry
+    body = {  
+              title: "Monthly Harvest", 
               price: 22.48, 
               frequency: "Monthly", 
               tea_id: tea_1.id,
@@ -12,7 +15,7 @@ RSpec.describe "subscriptions" do
             }
     headers = { "Content-Type": "application/json", "Accept": "application/json" } 
     
-    post "/api/v1/customers/#{customer_1.id}/subscriptions", headers: headers, params: JSON.generate(body)
+    post "/api/v1/customers/#{customer_1.id}/subscriptions/", headers: headers, params: JSON.generate(body)
 
     data = JSON.parse(response.body, symbolize_names: true)
             
