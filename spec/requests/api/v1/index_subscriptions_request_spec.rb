@@ -62,4 +62,18 @@ RSpec.describe "customer subscriptions" do
       expect(sub[:frequency]).to be_a String
     end
   end
+
+  it 'sad path' do
+    customer_1 = Customer.create!(first_name: "Dave", last_name: "Davis", email: "dave@davedavis.com", address: "123 Davis Ct. Davis, MO 66666")
+ 
+    get "/api/v1/customers/#{customer_1.id}/subscriptions"
+
+    parse = JSON.parse(response.body, symbolize_names: true)
+    expect(response).to be_successful
+    expect(parse).to be_a Hash
+    expect(parse).to have_key (:data)
+    expect(parse[:data][:attributes]).to have_key (:subscriptions)
+    expect(parse[:data][:attributes][:subscriptions]).to be_a String
+    expect(parse[:data][:attributes][:subscriptions]).to eq "No Subscriptions Found"
+  end
 end
