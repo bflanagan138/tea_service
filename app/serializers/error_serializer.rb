@@ -14,7 +14,7 @@ class ErrorSerializer
       errors: 
       {
         status: 422,
-        title: "error -  No Active Subscription Exists"
+        title: "No Active Subscription Exists"
       }
     }
   end
