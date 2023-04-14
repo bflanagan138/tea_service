@@ -26,4 +26,24 @@ RSpec.describe "cancel customer subscription" do
     expect(parse[:status]).to be_a String
     expect(parse[:status]).to eq "cancelled"
   end
+
+  it 'tests sad path' do
+    customer_1 = Customer.create!(first_name: "Dave", last_name: "Davis", email: "dave@davedavis.com", address: "123 Davis Ct. Davis, MO 66666")
+    tea_1 = Tea.create!(title: "Bengal Spice", description: "Herbal Tea, slightly sweet", temperature: 90, brew_time: 120)
+    subscription_1 = customer_1.subscriptions.create!(title: "Monthly Harvest", price: 22.48, frequency: "Monthly", tea_id: tea_1.id, status: "cancelled")
+    
+    update_params = {
+                    status: "cancelled"
+    }
+
+    patch "/api/v1/customers/#{customer_1.id}/subscriptions/#{subscription_1.id}", headers: headers, params: JSON.generate(update_params)
+    
+    parse = JSON.parse(response.body, symbolize_names: true)[:errors]
+    expect(parse).to be_a Hash
+    expect(parse).to have_key (:status)
+    expect(parse[:status]).to eq 422
+    expect(parse).to have_key (:title)
+    expect(parse[:title]).to be_a String
+    expect(parse[:title]).to eq "No Active Subscription Exists"
+  end
 end

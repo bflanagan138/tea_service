@@ -42,4 +42,18 @@ RSpec.describe "subscriptions" do
     expect(parse[:data][:tea]).to have_key (:brew_time)
     expect(parse[:data][:tea][:brew_time]).to be_a Integer
   end
+
+  it 'sad path' do 
+    customer_1 = Customer.create!(first_name: "Dave", last_name: "Davis", email: "dave@davedavis.com", address: "123 Davis Ct. Davis, MO 66666")
+   
+    post "/api/v1/customers/#{customer_1.id}/subscriptions/", headers: headers, params: JSON.generate(body)
+
+    parse = JSON.parse(response.body, symbolize_names: true)[:errors]
+    expect(response).to_not be_successful
+    expect(response.status).to eq 400
+    expect(parse).to be_a Hash
+    expect(parse).to have_key (:title)
+    expect(parse[:title]).to be_a String
+    expect(parse[:title]).to eq "Subscription not saved"
+  end
 end
