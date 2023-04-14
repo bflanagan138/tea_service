@@ -17,7 +17,6 @@ RSpec.describe "cancel customer subscription" do
     patch "/api/v1/customers/#{customer_1.id}/subscriptions/#{subscription_1.id}", headers: headers, params: JSON.generate(update_params)
     
     parse = JSON.parse(response.body, symbolize_names: true)[:data]
-  
     expect(parse).to be_a Hash
     expect(parse).to have_key (:id)
     expect(parse[:id]).to be_a Integer

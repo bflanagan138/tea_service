@@ -16,12 +16,9 @@ RSpec.describe "subscriptions" do
     
     post "/api/v1/customers/#{customer_1.id}/subscriptions/", headers: headers, params: JSON.generate(body)
 
-    data = JSON.parse(response.body, symbolize_names: true)
-          
+    parse = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_successful
     expect(response.status).to eq 201
-    parse = JSON.parse(response.body, symbolize_names: true)
-    
     expect(parse).to be_a Hash
     expect(parse).to have_key (:data)
     expect(parse[:data]).to have_key (:id)

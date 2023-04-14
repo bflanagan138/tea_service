@@ -10,15 +10,11 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
   
   def create
-    # subscription = Subscription.create!(subscription_params)
-    subscription_id = Subscription.last[:id] + 1
     subscription = Subscription.new(subscription_params)
-    
     subscription.status = "active"
-    subscription.save
-
+    
     if subscription.save
-    render json: SubscriptionSerializer.new_sub(subscription), status: 201
+      render json: SubscriptionSerializer.new_sub(subscription), status: 201
     else
       render json: ErrorSerializer.subscription_not_created, status: 400
     end
